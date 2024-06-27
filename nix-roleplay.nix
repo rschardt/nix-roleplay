@@ -2,6 +2,7 @@
   self,
   src ? ./.,
   nix-roleplay-dir ? "nix-rp",
+  nixOptions ? [],
   default_role ? {
     func_mods = [
       # personal_module
@@ -16,6 +17,7 @@
             buildOn = "local";
             substituteOnTarget = false;
             hermetic = false;
+            nixOptions = nixOptions;
           };
         }
       ])
@@ -68,7 +70,7 @@ rec {
                  []);
       in
       {
-        "${curNixConf.name}" = nixpkgs.lib.nixosSystem { # replace with { for debugging
+        "${curNixConf.name}" = nixpkgs.lib.nixosSystem { # replace * after '=' with '{' for debugging
           system = mergedAttrs.system;
           specialArgs = mergedAttrs.specialArgs;
           pkgs = mergedAttrs.pkgs;
