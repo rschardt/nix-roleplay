@@ -558,6 +558,12 @@ Flakehub esque:
 ### add more sections to table of contents
 
 
+### add home-manager module to default modules in nix-roleplay.nix
+
+
+### refactor and move home-manager import function to nix-roleplay.nix from nix-src/main.nix
+
+
 ## Contact
 
 

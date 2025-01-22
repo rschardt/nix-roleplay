@@ -3,16 +3,20 @@
   src ? ./.,
   nix-roleplay-dir ? "nix-rp",
   nixOptions ? [],
+  hostname ? "${name}",
   default_role ? {
     func_mods = [
       # personal_module
       (name: import (src + "/${nix-roleplay-dir}/machines/${name}/nixos/module-list.nix"))
 
+      # TODO
+      # Add dynamic import for home-manager.nix
+
       # nixinate_module
       (name: [
         {
           _module.args.nixinate = {
-            host = "${name}-root";
+            host = hostname;
             sshUser = "root";
             buildOn = "local";
             substituteOnTarget = false;
