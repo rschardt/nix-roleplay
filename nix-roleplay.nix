@@ -16,7 +16,7 @@
       (name: [
         {
           _module.args.nixinate = {
-            host = hostname;
+            host = "${hostname}";
             sshUser = "root";
             buildOn = "local";
             substituteOnTarget = false;
