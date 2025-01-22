@@ -3,7 +3,8 @@
   src ? ./.,
   nix-roleplay-dir ? "nix-rp",
   nixOptions ? [],
-  hostname ? "${name}",
+  hostname-prefix ? "",
+  hostname-suffix ? "",
   default_role ? {
     func_mods = [
       # personal_module
@@ -16,7 +17,7 @@
       (name: [
         {
           _module.args.nixinate = {
-            host = "${hostname}";
+            host = "${hostname-prefix}${name}${hostname-suffix}";
             sshUser = "root";
             buildOn = "local";
             substituteOnTarget = false;
